@@ -1,31 +1,11 @@
-from brownie import (
-    network,
-    accounts,
-    config,
-    LinkToken,
-    MockV3Aggregator,
-    MockOracle,
-    VRFCoordinatorMock,
-    Contract,
-)
-from web3 import Web3
+from brownie import network, accounts, config
 
-NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["hardhat", "development", "ganache"]
+NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache"]
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS + [
-    "mainnet-fork",
-    "binance-fork",
-    "matic-fork",
+    "mainnet-fork"
 ]
 
-contract_to_mock = {
-    "link_token": LinkToken,
-    "eth_usd_price_feed": MockV3Aggregator,
-    "vrf_coordinator": VRFCoordinatorMock,
-    "oracle": MockOracle,
-}
-
 DECIMALS = 18
-INITIAL_VALUE = Web3.toWei(2000, "ether")
 
 
 def get_account(index=None, id=None):
