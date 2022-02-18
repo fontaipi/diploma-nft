@@ -3,7 +3,6 @@
 	<link href="https://unpkg.com/tailwindcss@^1	.0/dist/tailwind.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js"></script>
 	<meta charset="UTF-8">
-	<script type="module" src="scripts/index.js"></script>
 </head>
 
 <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
@@ -26,7 +25,7 @@
 </nav>
 
 <body>
-	<div class="contact-form min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+	<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-md w-full space-y-8">
 			<div class=" rounded bg-white max-w-md rounded overflow-hidden shadow-xl p-5">
 
@@ -34,29 +33,28 @@
 					<div class="rounded-md shadow-sm -space-y-px">
 						<div class="grid gap-6">
 							<div class="col-span-12">
-								<label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
-								<input type="text" name="nom" id="nom"
+								<label class="block text-sm font-medium text-gray-700">Nom</label>
+								<input type="text"  id="nom"
 									class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md">
 							</div>
 							<div class="col-span-12">
-								<label for="prenom" class="block text-sm font-medium text-gray-700">Prénom</label>
-								<input type="text" name="prenom" id="prenom"
+								<label class="block text-sm font-medium text-gray-700">Prénom</label>
+								<input type="text" id="prenom"
 									class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md">
 							</div>
 							<div class="col-span-12">
-								<label for="promo" class="block text-sm font-medium text-gray-700">Promo</label>
-								<input type="text" name="promo" id="promo"
+								<label class="block text-sm font-medium text-gray-700">Promo</label>
+								<input type="text" id="promo"
 									class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md">
 							</div>
 							<div class="col-span-12">
-								<label for="annee" class="block text-sm font-medium text-gray-700">Année</label>
-								<input type="text" name="annee" id="annee"
+								<label class="block text-sm font-medium text-gray-700">Année</label>
+								<input type="text" id="annee"
 									class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md">
 							</div>
 							<div class="col-span-12">
-								<label for="adresse" class="block text-sm font-medium text-gray-700">Adresse ETH de
-									l'élève</label>
-								<input type="text" name="adresse" id="adresse"
+								<label class="block text-sm font-medium text-gray-700">Adresse ETH de l'élève</label>
+								<input type="text" id="adresse"
 									class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md">
 							</div>
 						</div>

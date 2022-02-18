@@ -85,18 +85,18 @@ async function getContractSymbol() {
     alert(`Contract ${CONTRACT_ADDRESS} Symbol: ${symbol}`);
 }
 
-function handleFormSubmit(event) {
-  event.preventDefault();
+// function handleFormSubmit(event) {
+//   event.preventDefault();
   
-  const data = new FormData(event.target);
+//   const data = new FormData(event.target);
   
-  const formJSON = Object.fromEntries(data.entries());
+//   const formJSON = Object.fromEntries(data.entries());
   
-  console.log(formJSON);
-}
+//   console.log(formJSON);
+// }
 
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', handleFormSubmit);
+// const form = document.querySelector('.contact-form');
+// form.addEventListener('submit', handleFormSubmit);
 
 
 window.ABI = [{
