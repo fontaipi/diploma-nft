@@ -7,32 +7,47 @@ const CONTRACT_ADDRESS = "0x58606cCb777D70b58f7a68b9aB3E30aE3745e75E";
 // function to mint an NFT
 
 async function mintDiploma() {
-  const contract = new window.web3.eth.Contract(
-    window.ABI,
-    CONTRACT_ADDRESS
-  );
-  let tokenMetadataURI = await contract.methods.tokenURI(tokenId).call()
 
-  if (tokenMetadataURI.startsWith("ipfs://")) {
-    tokenMetadataURI = `https://ipfs.io/ipfs/${tokenMetadataURI.split("ipfs://")[1]}`
+  if (window.web3) {
+    try {
+      // We use this since ethereum.enable() is deprecated. This method is not
+      // available in Web3JS - so we call it directly from metamasks' library
+      const selectedAccount = await window.ethereum
+        .request({
+          method: "eth_sendTransaction",
+        })
+        .then((accounts) => accounts[0])
+        .catch(() => {
+          throw Error("No account selected!");
+        });
+
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    alert("No ETH browser extension detected.");
   }
 
-  contract.methods.createCollectible(tokenMetadataURI).call()
+  const contract = new window.web3.eth.Contract(window.ABI,CONTRACT_ADDRESS);
+  const walletAddress = window.localStorage.getItem("userAddress")
+  contract.methods.awardDiploma("0x074DF36102c66CAE79Ffcdf5dEa5A7494A5Bb195","https://ipfs.io/ipfs/QmdS8Ay2q7rRGjUacP9viofZKDZLQnbNJrRwWAVVFFPq6n?filename=0-jdupon.json").call({from: walletAddress})
 }
+
 
 function handleFormSubmit(event) {
   event.preventDefault();
 
   const data = new FormData(event.target);
+  console.log(data);
 
   const formJSON = Object.fromEntries(data.entries());
 
   console.log(formJSON);
-  mintDiploma();
+  // mintDiploma();
 }
 
 const form = document.querySelector('.contact-form');
-// form.addEventListener('submit', handleFormSubmit);
+form.addEventListener('submit', handleFormSubmit);
 
 
 window.ABI = [
