@@ -7,22 +7,21 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Diploma is ERC721, Ownable {
-    using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+    uint256 public tokenCounter;
 
-    constructor() public ERC721("LaCathoDiploma", "LCD") {}
+    constructor() public ERC721("LaCathoDiploma", "LCD") {
+        tokenCounter = 0;
+    }
 
-    function awardDiploma(
-        address player,
-        string memory tokenURI,
-        address student
-    ) public onlyOwner returns (uint256) {
-        _tokenIds.increment();
-
-        uint256 newItemId = _tokenIds.current();
-        _mint(player, newItemId);
+    function awardDiploma(address student, string memory tokenURI)
+        public
+        onlyOwner
+        returns (uint256)
+    {
+        uint256 newItemId = tokenCounter;
+        _mint(student, newItemId);
         _setTokenURI(newItemId, tokenURI);
-
+        tokenCounter = tokenCounter + 1;
         return newItemId;
     }
 

@@ -5,5 +5,5 @@ metadata_template = {
     "code": "",
     "description": "",
     "image": "",
-    "graduate": {"name": "", "lastname": "", "date_of_birth": "", "place of birth": ""},
+    "graduate": {"name": "", "lastname": "", "date_of_birth": "", "place_of_birth": ""},
 }
